@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Important notice for BBINL CC Generator & Checker users. Our domain is moving from bbinl.site to bbinl.eu.cc. Please bookmark the new URL. সিসি জেনারেটর এবং চেকার ব্যবহারকারীদের জন্য ডোমেন পরিবর্তন নোটিশ।">
+  <title>Domain Migration Notice | BBINL</title>
+
+  <!-- Google Fonts for High-Quality Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #080512;
+      --primary-color: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.15);
+      --accent-color: #14b8a6;
+      --accent-glow: rgba(20, 184, 166, 0.15);
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.07);
+
+      --text-white: #ffffff;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+
+      --success-color: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.1);
+      --error-color: #ef4444;
+      --error-bg: rgba(239, 68, 68, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      font-family: 'Outfit', 'Hind Siliguri', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 24px 16px;
+    }
+
+    /* Ambient Glowing Background Blobs */
+    .glow-blob {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: -1;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .glow-blob-1 {
+      background: var(--primary-color);
+      top: -10%;
+      left: -5%;
+      animation: float-blob-1 25s ease-in-out infinite alternate;
+    }
+
+    .glow-blob-2 {
+      background: var(--accent-color);
+      bottom: -10%;
+      right: -5%;
+      animation: float-blob-2 25s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes float-blob-1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(60px, 80px) scale(1.15);
+      }
+
+      100% {
+        transform: translate(-30px, -40px) scale(0.9);
+      }
+    }
+
+    @keyframes float-blob-2 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(-80px, -60px) scale(1.2);
+      }
+
+      100% {
+        transform: translate(40px, 50px) scale(0.85);
+      }
+    }
+
+    /* Main Container */
+    .container {
+      width: 100%;
+      max-width: 620px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    /* Premium Glassmorphic Card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      width: 100%;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transform: skewX(-25deg);
+      transition: 0.75s;
+    }
+
+    .card:hover::before {
+      left: 150%;
+      transition: 0.75s;
+    }
+
+    /* Main Header */
+    .header-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .icon-wrapper {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 50%;
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+    }
+
+    .icon-wrapper svg {
+      color: var(--primary-color);
+      animation: pulse-icon 2s infinite alternate;
+    }
+
+    @keyframes pulse-icon {
+      0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px var(--primary-glow));
+      }
+
+      100% {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 8px var(--primary-color));
+      }
+    }
+
+    h1.main-title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* Message Sections */
+    .messages-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+
+    .announcement {
+      position: relative;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .lang-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      background: var(--accent-glow);
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(20, 184, 166, 0.2);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    h2.announcement-title {
+      font-size: 1.4rem;
+      color: var(--text-white);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    p.desc {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    p.desc strong {
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--card-border) 15%, var(--card-border) 85%, transparent);
+      width: 100%;
+    }
+
+    /* Clean Domain Migration Card */
+    .domain-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .domain-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 14px;
+      padding: 16px 20px;
+      gap: 12px;
+    }
+
+    .domain-old,
+    .domain-new {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .domain-old {
+      align-items: flex-start;
+    }
+
+    .domain-new {
+      align-items: flex-end;
+    }
+
+    .domain-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    .domain-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .domain-old .domain-name {
+      color: var(--text-muted);
+      text-decoration: line-through;
+      opacity: 0.8;
+    }
+
+    .domain-new .domain-name {
+      color: var(--text-white);
+      background: linear-gradient(120deg, #a5b4fc, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .domain-arrow {
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      animation: pulse-arrow 1.5s infinite alternate;
+    }
+
+    @keyframes pulse-arrow {
+      0% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+    }
+
+    /* Language Toggle */
+    .lang-toggle-container {
+      display: flex;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 3px;
+      width: fit-content;
+      margin: -10px auto 24px auto;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      padding: 6px 16px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #4f46e5 100%);
+      color: var(--text-white);
+      box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+    }
+
+    /* Interactive Domain Wrapper */
+    .domain-interactive {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      position: relative;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed rgba(99, 102, 241, 0.25);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .domain-interactive:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(99, 102, 241, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .domain-interactive:active {
+      transform: translateY(0);
+    }
+
+    .domain-name.clickable {
+      cursor: pointer;
+    }
+
+    .btn-copy-icon {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      border-radius: 4px;
+      transition: color 0.2s;
+    }
+
+    .domain-interactive:hover .btn-copy-icon {
+      color: var(--text-white);
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 10, 30, 0.95);
+      border: 1px solid var(--card-border);
+      color: var(--text-white);
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      z-index: 20;
+    }
+
+    .domain-interactive:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Special Note Styling */
+    .note-box {
+      background: rgba(239, 68, 68, 0.02);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-top: 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .note-text {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .note-text strong {
+      color: var(--text-white);
+    }
+
+    .note-en {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 8px;
+    }
+
+    .char-highlight {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text-white);
+      font-weight: 600;
+      font-family: inherit;
+      display: inline-block;
+    }
+
+    .char-highlight.font-hook {
+      font-family: "Trebuchet MS", "Lucida Grande", "Segoe UI", sans-serif;
+      font-style: italic;
+      color: var(--accent-color);
+      border-color: rgba(20, 184, 166, 0.3);
+      background: rgba(20, 184, 166, 0.08);
+      font-size: 1.1rem;
+      transform: scale(1.05);
+    }
+
+    /* Interactive Buttons */
+    .btn {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-weight: 600;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #4f46e5 100%);
+      color: var(--text-white);
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120%;
+      height: 0;
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: all 0.3s ease;
+      padding-top: 120%;
+    }
+
+    .btn-primary:hover::after {
+      opacity: 1;
+      height: 120%;
+      padding-top: 0;
+    }
+
+
+
+    /* Footer styling */
+    .footer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 8px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      h2.announcement-title {
+        font-size: 1.2rem;
+      }
+
+      .domain-flow {
+        padding: 12px 16px;
+      }
+
+      .domain-name {
+        font-size: 0.95rem;
+      }
+
+      .note-box {
+        padding: 12px 14px;
+        margin-top: 16px;
+      }
+
+      .note-text {
+        font-size: 0.8rem;
+      }
+
+      .note-en {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .domain-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .domain-old,
+      .domain-new {
+        align-items: center;
+        text-align: center;
+      }
+
+      .domain-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Glowing Background Blobs -->
+  <div class="glow-blob glow-blob-1"></div>
+  <div class="glow-blob glow-blob-2"></div>
+
+  <div class="container">
+    <div class="card">
+
+      <!-- Top Icon header -->
+      <div class="header-main">
+        <div class="icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </div>
+        <h1 class="main-title">URL Update Notice</h1>
+      </div>
+
+      <!-- Language Toggle -->
+      <div class="lang-toggle-container">
+        <button class="lang-btn active" id="btn-bn" onclick="setLanguage('bn')">বাংলা</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">English</button>
+      </div>
+
+      <!-- Toggleable Announcements -->
+      <div class="announcement">
+        <!-- Bengali Announcement -->
+        <div class="lang-content lang-bn">
+          <h2 class="announcement-title">অনুগ্রহপূর্বক নতুন লিংক সেভ করুন</h2>
+          <p class="desc">
+            আপনারা যারা আমাদের <strong>CC Generator</strong> এবং <strong>Checker</strong> টুলস গুলো ব্যবহার করতেন, তারা
+            অনুগ্রহপূর্বক নিচের নতুন লিংকটি মার্ক করে বা সেভ করে রাখুন।
+          </p>
+        </div>
+
+        <!-- English Announcement -->
+        <div class="lang-content lang-en" style="display: none;">
+          <h2 class="announcement-title">Please Save the New Link</h2>
+          <p class="desc">
+            If you used our <strong>CC Generator</strong> and <strong>Checker</strong> tools, please bookmark or save
+            the new link below to ensure uninterrupted access.
+          </p>
+        </div>
+      </div>
+
+      <!-- Domain Migration Card -->
+      <div class="domain-card">
+        <div class="domain-flow">
+          <div class="domain-old">
+            <span class="domain-label lang-content lang-bn">পুরাতন</span>
+            <span class="domain-label lang-content lang-en" style="display: none;">Old</span>
+            <span class="domain-name">bbinl.site</span>
+          </div>
+          <div class="domain-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+          <div class="domain-new">
+            <span class="domain-label lang-content lang-bn">নতুন</span>
+            <span class="domain-label lang-content lang-en" style="display: none;">New</span>
+            <div class="domain-interactive" onclick="copyLink('bbinl.eu.cc', event)"
+              title="Click to copy / কপি করতে ক্লিক করুন">
+              <span class="domain-name clickable" id="domainText">bbinl.eu.cc</span>
+              <button id="copyIconBtn" class="btn-copy-icon" aria-label="Copy Link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="copySvg">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+              <span class="tooltip" id="copyTooltip">কপি করুন</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Visit CTA Button inside card -->
+        <a href="https://bbinl.eu.cc" target="_blank" class="btn btn-primary">
+          <span class="lang-content lang-bn">ভিজিট করুন</span>
+          <span class="lang-content lang-en" style="display: none;">Visit Website</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Special Note Box -->
+      <div class="note-box">
+        <!-- Bengali Note -->
+        <p class="note-text lang-content lang-bn">
+          ⚠️ <strong>বিশেষ দ্রষ্টব্য:</strong><br>
+          আমাদের লিংকের প্রথমে আছে <span class="char-highlight">b</span>, তারপরে আছে <span
+            class="char-highlight">bin</span> এবং শেষে আছে <span class="char-highlight font-hook">l</span> (এল)।<br>
+          অনুগ্রহ করে শেষের অক্ষরটিকে আবার <span class="char-highlight">I</span> (আই) ভেবে ভুল করবেন না! 🤡😆
+        </p>
+        <!-- English Note -->
+        <p class="note-text lang-content lang-en" style="display: none;">
+          ⚠️ <strong>Important Note:</strong><br>
+          Our link starts with <span class="char-highlight">b</span>, then <span class="char-highlight">bin</span>, and
+          ends with <span class="char-highlight font-hook">l</span> (lowercase L).<br>
+          Please don't mistake it for uppercase <span class="char-highlight">I</span> (eye)</span>! 🤡
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer Copyright -->
+    <div class="footer">
+      <span class="lang-content lang-bn">&copy; 2026 BBINL. এই পেজটি সেভ রাখুন।</span>
+      <span class="lang-content lang-en" style="display: none;">&copy; 2026 BBINL. Keep this page saved.</span>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = 'bn';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+
+      // Update toggle buttons
+      document.getElementById('btn-bn').classList.toggle('active', lang === 'bn');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      // Toggle visibility
+      const bnElements = document.querySelectorAll('.lang-content.lang-bn');
+      const enElements = document.querySelectorAll('.lang-content.lang-en');
+
+      bnElements.forEach(el => {
+        el.style.display = lang === 'bn' ? '' : 'none';
+      });
+      enElements.forEach(el => {
+        el.style.display = lang === 'en' ? '' : 'none';
+      });
+
+      // Update copy tooltip text
+      const tooltip = document.getElementById('copyTooltip');
+      if (tooltip) {
+        tooltip.textContent = lang === 'bn' ? 'কপি করুন' : 'Copy';
+      }
+    }
+
+    function copyLink(text, event) {
+      if (event) event.stopPropagation();
+      navigator.clipboard.writeText(text).then(() => {
+        const copySvg = document.getElementById('copySvg');
+        const tooltip = document.getElementById('copyTooltip');
+        const domainInteractive = document.querySelector('.domain-interactive');
+
+        // Update tooltip content
+        tooltip.textContent = currentLang === 'bn' ? 'কপিড!' : 'Copied!';
+        tooltip.style.opacity = '1';
+        tooltip.style.visibility = 'visible';
+
+        // Update icon to checkmark
+        copySvg.innerHTML = `
+          <polyline points="20 6 9 17 4 12"></polyline>
+        `;
+        copySvg.style.color = 'var(--success-color)';
+        domainInteractive.style.borderColor = 'var(--success-color)';
+
+        setTimeout(() => {
+          tooltip.textContent = currentLang === 'bn' ? 'কপি করুন' : 'Copy';
+          tooltip.style.opacity = '';
+          tooltip.style.visibility = '';
+          copySvg.innerHTML = `
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          `;
+          copySvg.style.color = '';
+          domainInteractive.style.borderColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+
+
+  </script>
+</body>
+
+</html>
